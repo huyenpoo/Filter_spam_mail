@@ -1,9 +1,9 @@
 import pandas as pd  # For reading xlsx file
 from Predict import *
 
-if __name__ == '__main__':
+def predict_a_mail(mail):
     # get mail
-    xl = pd.ExcelFile('Mail Filter Dataset.xls')
+    xl = pd.ExcelFile('D:\Tài liệu K2\Mã nguồn mở\project\Filter_spam_mail\Mail Filter Dataset.xls')
     dfs = xl.parse()
     contentMails = []
     labels = []
@@ -24,22 +24,23 @@ if __name__ == '__main__':
 
     vectors = createVector(dfs.content_mail, setBagOfWord)
     bayesMatrix = componentProbability(setBagOfWord, vectors, labels)
+    return predict(mail, setBagOfWord, labels, bayesMatrix)
     # print(setBagOfWord)
     # for i in range(len(bayesMatrix)):
     #     for j in range(len(bayesMatrix[i])):
     #         print("a[" + str(i) + "," + str(j) + "] = " + str(bayesMatrix[i][j]))
     #     print()
 
-    file = pd.ExcelFile('Book1.xls')
-    temp = file.parse("Sheet1")
-
-
-    for contentMail in temp.content_mail:
-        print("***** CONTENTS OF MAIL *****")
-        print(contentMail)
-        if predict(contentMail, setBagOfWord, labels, bayesMatrix) == 1:
-            print("===> Email spam")
-        else:
-            print("===> Email non spam")
-        print("======================================================================")
+    # file = pd.ExcelFile('Book1.xls')
+    # temp = file.parse("Sheet1")
+    #
+    #
+    # for contentMail in temp.content_mail:
+    #     print("***** CONTENTS OF MAIL *****")
+    #     print(contentMail)
+    #     if predict(contentMail, setBagOfWord, labels, bayesMatrix) == 1:
+    #         print("===> Email spam")
+    #     else:
+    #         print("===> Email non spam")
+    #     print("======================================================================")
 
