@@ -3,7 +3,7 @@ from Predict import *
 
 def predict_a_mail(mail):
     # get mail
-    xl = pd.ExcelFile('D:\Tài liệu K2\Mã nguồn mở\project\Filter_spam_mail\Mail Filter Dataset.xls')
+    xl = pd.ExcelFile('Mail Filter Dataset.xls')
     dfs = xl.parse()
     contentMails = []
     labels = []
