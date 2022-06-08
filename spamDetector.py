@@ -16,7 +16,7 @@ if __name__ == "__main__":
 	choices=st.sidebar.selectbox("Select Activities",activites)
 	if choices=="Classification":
 		st.subheader("Classification")
-		msg=st.text_input("Enter a text")
+		msg=st.text_area("Enter a text", height = 400)
 		if st.button("Process"):
 			print(msg)
 			print(type(msg))
