@@ -28,3 +28,9 @@ if __name__ == "__main__":
 			else:
 				st.error("This is A Spam Email")
 				speak("This is A Spam Email")
+	else:
+		st.write("Members of team:")
+		st.write("1. Le Lien Huong")
+		st.write("2. Le Thi Thanh Huyen")
+		st.write("3. Phan Cao Minh Nhat")
+		st.write("4. Tran Quang Tri")
